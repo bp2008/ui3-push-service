@@ -45,6 +45,7 @@
 	$("targetName").textContent = serverName || "Blue Iris";
 	$("targetHost").textContent = returnUrl.origin + returnUrl.pathname;
 	$("relayOrigin").textContent = location.host;
+	$("insecureReason").hidden = returnUrl.protocol === "https:"; // UI3 only uses the relay from an HTTPS address when a setting forces it.
 
 	var unsupportedReason = getUnsupportedReason();
 	if (unsupportedReason)
