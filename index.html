@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="referrer" content="no-referrer" />
+	<title>UI3 Push Notifications</title>
+	<link rel="icon" href="favicon.png" />
+	<link rel="stylesheet" href="relay.css" />
+</head>
+<body>
+	<main class="card" id="card">
+		<header>
+			<img src="icon-168.png" alt="" width="48" height="48" />
+			<div>
+				<h1>Push Notifications</h1>
+				<div class="subtitle">for UI3, the Blue Iris web interface</div>
+			</div>
+		</header>
+
+		<section id="viewLoading">
+			<p>Loading…</p>
+		</section>
+
+		<section id="viewRequest" hidden>
+			<p>A UI3 page wants to receive Blue Iris notifications in this browser:</p>
+			<div class="target">
+				<div class="targetName" id="targetName"></div>
+				<div class="targetHost" id="targetHost"></div>
+			</div>
+			<p class="note">Notifications will be shown by this site (<span id="relayOrigin"></span>) because the UI3 address above is not a secure (HTTPS) address, and browsers only allow secure sites to receive push notifications. Clicking a notification opens the UI3 address above.</p>
+			<p class="note warn">Only continue if you opened this page from UI3 and you recognize the address above.</p>
+			<div class="buttons">
+				<button type="button" class="primary" id="btnEnable">Enable notifications</button>
+				<button type="button" id="btnCancel">Cancel</button>
+			</div>
+		</section>
+
+		<section id="viewBusy" hidden>
+			<p id="busyText">Working…</p>
+		</section>
+
+		<section id="viewResult" hidden>
+			<p id="resultText"></p>
+			<div class="buttons" id="resultButtons">
+				<button type="button" class="primary" id="btnReturn">Return to UI3</button>
+			</div>
+		</section>
+
+		<section id="viewInvalid" hidden>
+			<p class="error">This page must be opened from UI3's Push Notifications dialog.</p>
+			<p class="note" id="invalidDetail"></p>
+		</section>
+
+		<footer>
+			This page stores nothing on its server. It asks your browser for a push subscription and hands it back to UI3, which gives it to your Blue Iris server.
+		</footer>
+	</main>
+	<script src="relay.js"></script>
+</body>
+</html>
